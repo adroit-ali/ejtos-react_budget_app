@@ -2,7 +2,7 @@ import React from 'react'
 import { AppContext } from "../context/AppContext";
 
 const ExpenseTotal = () => {
-    const { expenses } = React.useContext(AppContext);
+    const {currency, expenses } = React.useContext(AppContext);
     var totalExpenses = 0;
     if (expenses) {
             totalExpenses = expenses.reduce((total, item) => {
@@ -11,7 +11,7 @@ const ExpenseTotal = () => {
     }
     return (
         <div className={`alert alert-primary`}>
-            <span>Spent so far: £{totalExpenses}</span>
+            <span>Spent so far: {currency}{totalExpenses}</span>
         </div>
     )
 }
